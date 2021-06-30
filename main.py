@@ -1,5 +1,6 @@
+"""Main File"""
 import os
-from wikipideaGameAlgorithm import WikipideaGameAlgorithm
+from wikipedia_game_algorithm import WikipideaGameAlgorithm
 
 os.system('powershell clear')
 
