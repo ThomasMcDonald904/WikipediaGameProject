@@ -1,0 +1,7 @@
+{
+    "python.pythonPath": ".venv\\Scripts\\python.exe",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.lintOnSave":true,
+    "python.linting.pylintArgs": ["--disable={C0114}", "--disable={C0115}", "--disable={C0116}"]
+}
