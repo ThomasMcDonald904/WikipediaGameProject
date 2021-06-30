@@ -21,7 +21,7 @@ class WikipideaGameAlgorithm:
 
         cleaned_links = []
         for link in starting_web_links:
-            if re.search('^/wiki/[^:]*$', link):
+            if re.search('^/wiki/[^:_#]*$', link):
                 cleaned_links.append(link)
         print(cleaned_links[:20])
 
