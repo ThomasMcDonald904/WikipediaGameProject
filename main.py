@@ -4,6 +4,7 @@ from wikipedia_game_algorithm import WikipideaGameAlgorithm
 
 os.system('powershell clear')
 
-algorithm = WikipideaGameAlgorithm()
+algorithm = WikipideaGameAlgorithm("https://en.wikipedia.org/wiki/Banana")
+link = algorithm.get_most_similar_link("https://en.wikipedia.org/wiki/Custard")
 
-algorithm.pathmaker("https://en.wikipedia.org/wiki/Pangolin", "https://en.wikipedia.org/wiki/Claw")
+print(link)
