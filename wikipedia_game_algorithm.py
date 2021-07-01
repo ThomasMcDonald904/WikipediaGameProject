@@ -9,6 +9,7 @@ class WikipideaGameAlgorithm:
 
     def __init__(self, end_url):
         end_word = re.sub('https://en.wikipedia.org/wiki/', '', end_url)
+        self.end_url = end_url.lower()
         self.end_word_synset = wordnet.synsets(end_word)[0]
 
 
@@ -52,20 +53,24 @@ class WikipideaGameAlgorithm:
         synset_ratings.sort(key=lambda l:l[1], reverse=True)
 
         best_link = str(synset_ratings[0][0].name())
-        link_name = re.sub('.n.01', '', best_link)
-        return f"https://en.wikipedia.org/wiki/{link_name}"
+        link_name = re.sub('\.n\.0\d+', '', best_link)
+        full_best_url = f"https://en.wikipedia.org/wiki/{link_name}"
+        if full_best_url == url:
+            index = 0
+            while full_best_url == url:
+                best_link = str(synset_ratings[index][0].name())
+                link_name = re.sub('\.n\.0\d+', '', best_link)
+                full_best_url = f"https://en.wikipedia.org/wiki/{link_name}"
+                index += 1
+            return full_best_url
+        else:
+            return full_best_url
 
-        # for i in link_synsets:
-        #     link_synsets.append(self.end_word_synset.wup_similarity(i))
-        # print(link_synsets)
-
-    # def get_synset(self, wiki_url):
-    #     word = re.sub('/wiki/', '', wiki_url)
-    #     word = word.lower()
-    #     try:
-    #         word_synset = wordnet.synsets(word)[0]
-    #     except:
-    #         print("Your Wikipedia URL End Topic is not Compatible with the Wordnet Library")
-    #     finally:
-    #         exit()
-    #     return word_synset
+    def get_path_to_end_link(self, url, print_path=True):
+        """Method To Get Path from URL To Final URL """
+        current_url = url
+        while not current_url == self.end_url:
+            current_url = self.get_most_similar_link(current_url)
+            if print_path:
+                print(current_url)
+        print("End URL Reached")
