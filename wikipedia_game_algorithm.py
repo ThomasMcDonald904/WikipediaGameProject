@@ -4,6 +4,7 @@ import urllib.request
 from bs4 import BeautifulSoup
 from nltk.corpus import wordnet
 
+
 class WikipideaGameAlgorithm:
     """Housing For Anything Wikipedia Game Algorythm Related"""
 
@@ -12,14 +13,13 @@ class WikipideaGameAlgorithm:
         self.end_url = end_url
         try:
             self.end_word_synset = wordnet.synsets(end_word)[0]
-        except:
+        except IndexError:
             print("End Word Not In WordNet Library")
             exit()
 
 
     def get_most_similar_link(self, url, past_links):
-        """Initial Link"""
-        
+        """Initial Link"""      
         starting_web_url = urllib.request.urlopen(url)
         starting_html = starting_web_url.read()
         starting_html = BeautifulSoup(starting_html, 'html.parser')
@@ -30,15 +30,20 @@ class WikipideaGameAlgorithm:
 
         cleaned_links = []
         for link in starting_web_links:
-            if re.search('^/wiki/[^:#%]*$', link) and not re.search('_\(identifier\)', link):
+            if re.search('^/wiki/[^:#%]*$', link) and not re.search('_\(identifier\)', link):# pylint: disable=anomalous-backslash-in-string
                 cleaned_links.append(link)
         word_links = []
         for link in cleaned_links:
             word_links.append(re.sub(r'/wiki/', '', link))
         word_links = list(dict.fromkeys(word_links))
 
+        cleaned_word_links = []
+        for word in word_links:
+            if not f"https://en.wikipedia.org/wiki/{word}" in past_links:
+                cleaned_word_links.append(word)
+
         link_synsets = []
-        for link in word_links:
+        for link in cleaned_word_links:
             result = wordnet.synsets(link)
             if result != []:
                 link_synsets.append([link, result[0]])
@@ -52,24 +57,12 @@ class WikipideaGameAlgorithm:
 
         ratings.sort(key=lambda l:l[1], reverse=True)
 
-        # best_link = str(synset_ratings[0][0].name())
-        # link_name = re.sub('\.n\.0\d+', '', best_link)
-        # full_best_url = f"https://en.wikipedia.org/wiki/{link_name}"
-        full_best_url = ""
-        index = 0
-        best_link_rating = 0
-        while (full_best_url == "" or full_best_url in past_links) and index < len(ratings):
-            best_link = ratings[index][0]
-            best_link_rating = ratings[index][1]
-            # link_name = re.sub('\.n\.0\d+', '', best_link)
-            full_best_url = f"https://en.wikipedia.org/wiki/{best_link}"
-            index += 1
-        if not full_best_url in past_links:
-            return full_best_url, best_link_rating
-        else:
-            return "", 0
-        
-            
+        best_link = ratings[0][0]
+        best_link_rating = ratings[0][1]
+        full_best_url = f"https://en.wikipedia.org/wiki/{best_link}"
+        return full_best_url, best_link_rating
+
+                
 
     def get_path_to_end_link(self, url, print_path=True, chart=True):
         """Method To Get Path from URL To Final URL """
