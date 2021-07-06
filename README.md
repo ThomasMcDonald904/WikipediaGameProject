@@ -20,7 +20,7 @@ Insert into \_\_init\_\_:<br>
 Run once to download wordnet library<br>
 Then Delete:<br>
 ``import nltk``<br>
-``nltk download``
+``nltk.download("wordnet")``
 
 # To run program
 **main.py file is already setup**, but to run program:<br>
