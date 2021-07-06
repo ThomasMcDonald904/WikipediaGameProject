@@ -1,4 +1,4 @@
-"""Import"""
+"""Wikipedia Algorithm"""
 import re
 import urllib.request
 from bs4 import BeautifulSoup
@@ -19,7 +19,7 @@ class WikipideaGameAlgorithm:
 
 
     def get_most_similar_link(self, url, past_links):
-        """Initial Link"""      
+        """Initial Link"""
         starting_web_url = urllib.request.urlopen(url)
         starting_html = starting_web_url.read()
         starting_html = BeautifulSoup(starting_html, 'html.parser')
@@ -62,7 +62,6 @@ class WikipideaGameAlgorithm:
         full_best_url = f"https://en.wikipedia.org/wiki/{best_link}"
         return full_best_url, best_link_rating
 
-                
 
     def get_path_to_end_link(self, url, print_path=True, chart=True):
         """Method To Get Path from URL To Final URL """
