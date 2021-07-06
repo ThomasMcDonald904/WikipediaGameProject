@@ -24,7 +24,7 @@ Then Delete:<br>
 
 # To run program
 **main.py file is already setup**, but to run program:<br>
-Initialize WikipediaGameAlgorithm with the string of your desired end link and make sure it exists and is not a portal, like so:<br>
+Initialize WikipediaGameAlgorithm with the string of your desired end link and **make sure it exists and is not a portal**, like so:<br>
 ``algorithm = WikipediaGameAlgorithm("your ending wikipedia link")``<br>
 Then run path_to_end_link on your WikipediaGameAlgorithm object using the string of your starting link, like so:<br>
 ``algorithm.path_to_end_link("your starting wikipedia link")``<br>
