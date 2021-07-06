@@ -7,7 +7,7 @@ program complete these steps to include libraries
 ``py -m venv .venv``
 
 ##### Linux:
-``python3 -m venv .venv``
+``python3 -m venv .venv``<br>
 Select .venv as python interpreter
 ``pip install bs4``
 ``pip install nltk``
