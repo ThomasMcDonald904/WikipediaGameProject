@@ -26,8 +26,8 @@ Then Delete:<br>
 # To run program
 **main.py file is already setup**, but to run program:<br>
 If on linux change line in main.py:<br> 
-``os.system("powershell clear")``
-to:
+``os.system("powershell clear")``<br>
+to:<br>
 ``os.system("clear")``<br>
 
 Initialize WikipediaGameAlgorithm with the string of your desired end link and **make sure it exists and is not a portal**, like so:<br>
