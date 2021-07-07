@@ -5,15 +5,13 @@ program, complete these steps to include libraries
 #### Copy-Paste This code into a terminal
 ##### Windows:
 ``py -m venv .venv``
-
+``.\.venv\Scripts\Activate.ps1``
 ##### Linux:
 ``python3 -m venv .venv``<br>
+``.\venv\Scripts\activate``<br>
 
 ##### Next Steps for all operating systems
 Select .venv as python interpreter<br>
-##### Windows
-``  .\.venv\Scripts\Activate.ps1``
-
 ``pip install bs4``<br>
 ``pip install nltk``<br>
 Insert into imports in wikipedia_game_algorithm.py:<br>
