@@ -11,6 +11,9 @@ program, complete these steps to include libraries
 
 ##### Next Steps for all operating systems
 Select .venv as python interpreter<br>
+##### Windows
+``.\.venv\Scripts\Activate.ps1``
+
 ``pip install bs4``<br>
 ``pip install nltk``<br>
 Insert into imports in wikipedia_game_algorithm.py:<br>
