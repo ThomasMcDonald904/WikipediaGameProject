@@ -4,7 +4,7 @@ program, complete these steps to include libraries
 
 #### Copy-Paste This code into a terminal
 ##### Windows:
-``py -m venv .venv``
+``py -m venv .venv``<br>
 ``.\.venv\Scripts\Activate.ps1``
 ##### Linux:
 ``python3 -m venv .venv``<br>
