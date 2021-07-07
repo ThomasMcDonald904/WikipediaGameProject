@@ -8,7 +8,7 @@ program, complete these steps to include libraries
 ``.\.venv\Scripts\Activate.ps1``
 ##### Linux:
 ``python3 -m venv .venv``<br>
-``.\venv\Scripts\activate``<br>
+``.\.venv\Scripts\activate``<br>
 
 ##### Next Steps for all operating systems
 Select .venv as python interpreter<br>
