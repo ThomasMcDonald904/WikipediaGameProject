@@ -13,7 +13,7 @@ program, complete these steps to include libraries
 Select .venv as python interpreter<br>
 ``pip install bs4``<br>
 ``pip install nltk``<br>
-Insert into imports:<br>
+Insert into imports in wikipedia_game_algorithm.py:<br>
 ``import nltk``<br>
 Insert into \_\_init\_\_:<br>
 ``nltk.download("wordnet")``<br>
