@@ -20,7 +20,7 @@ Insert into imports in wikipedia_game_algorithm.py:<br>
 ``import nltk``<br>
 Insert into \_\_init\_\_:<br>
 ``nltk.download("wordnet")``<br>
-Run once to download wordnet library<br>
+Run once main.py file(see: To run program)to download wordnet library<br>
 Then Delete:<br>
 ``import nltk``<br>
 ``nltk.download("wordnet")``
