@@ -2,6 +2,8 @@
 If this is the first time your are using the
 program, complete these steps to include libraries
 
+I did all of these in visual studio's Terminal, not sure how it would work elsewhere.
+
 #### Copy-Paste This code into a terminal
 ##### Windows:
 ``py -m venv .venv``<br>
